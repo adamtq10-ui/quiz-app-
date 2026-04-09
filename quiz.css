@@ -10,7 +10,7 @@ body {
     color: white;
     width: 100%;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
     position: relative;
     padding: 0 clamp(20px, 8vw, 140px);
 }
