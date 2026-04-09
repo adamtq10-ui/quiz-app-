@@ -8,7 +8,9 @@
 body {
     background-color: #313e51;
     color: white;
+    width: 100%;
     overflow-x: hidden;
+    overflow-y: hidden;
     position: relative;
     padding: 0 clamp(20px, 8vw, 140px);
 }
@@ -62,7 +64,7 @@ body {
 .hero h1 {
     font-size: 64px;
     font-weight: 300;
-    line-height: 1;
+    line-height: 100%;
     margin-bottom: 48px;
 }
 
@@ -107,7 +109,6 @@ body {
     font-weight: 500;
 }
 
-/* Background Decoration */
 .circle {
     position: absolute;
     border: 80px solid rgba(255, 255, 255, 0.03);
@@ -115,16 +116,18 @@ body {
     z-index: -1;
 }
 
-.circle-top { width: 800px; height: 800px; top: -300px; left: -250px; }
-.circle-bottom { width: 900px; height: 900px; bottom: -400px; right: -300px; }
+.circle-top { width: 800px; height: 800px; top: -300px; left: -250px;
+color: #313e51;
+}
+.circle-bottom { width: 900px; height: 900px; bottom: -400px; right: -300px; 
+color: #313e51;}
 
-/* Placeholder Colors */
 .html { background: #fff1e9; }
 .css { background: #e0fdef; }
 .js { background: #ebf0ff; }
 .access { background: #f6e7ff; }
 
-/* Hover State dial card */
+
 .item:hover {
     outline: 3px solid var(--purple, #a729f5);
     outline-offset: -3px; 
@@ -158,4 +161,59 @@ body {
     color:#abc1e1; 
     font-style: italic; 
     font-size: 1.2rem; 
+}
+
+@media (max-width: 1024px) {
+    body {
+        padding: 40px 24px;
+        background-position: top center; 
+    }
+
+    .main-header {
+        height: auto;
+        margin-bottom: 64px;
+        justify-content: flex-end;
+    }
+
+    .container {
+        flex-direction: column; 
+        align-items: flex-start;
+        width: 100%;
+        max-width: 640px; 
+        margin: 0 auto; 
+        gap: 40px;
+    }
+
+    .hero {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 40px; 
+        margin-bottom: 16px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 24px;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .item {
+        padding: 12px;
+        gap: 20px;
+        border-radius: 12px;
+    }
+
+    .box {
+        width: 40px;
+        height: 40px;
+    }
+
+    .item span {
+        font-size: 18px;
+    }
 }
