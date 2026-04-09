@@ -110,6 +110,11 @@ body {
     color: inherit;
 }
 
+.menu a.item {
+    display: flex;
+    width: 100%;
+}
+
 .box {
     width: 56px;
     height: 56px;
