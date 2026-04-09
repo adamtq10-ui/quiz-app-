@@ -405,6 +405,10 @@ color: #313e51;}
     content: "✖";
 }
 
+.item.wrong .icon::after {
+    content: "✖";
+}
+
 /* check */
 .item.correct .icon {
     background: #2FD887;
@@ -441,4 +445,42 @@ color: #313e51;}
     background: #a729f5;
     border-radius: 10px;
     transition: width 0.3s ease;
+    margin-top: 203px;
+}
+
+.error-message {
+    margin-top: 16px;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size:24px;
+    justify-content: center; 
+    width: 100%;
+    line-height:150%;
+    font-weight: 400;
+}
+
+.error-message.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.error-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #EE5454;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.error-icon::after {
+    content: "✖";
+    color: #EE5454;
+    font-size: 12px;
+    font-weight: bold;
 }
