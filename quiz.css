@@ -143,11 +143,10 @@ color: #313e51;}
     transform: scale(0.98);
 }
 
-
 .hero-text h1 {
-    font-size: 3.8rem; 
+    font-size: 64px; 
     font-weight: 300; 
-    line-height: 1.1; 
+    line-height: 100%; 
     margin-bottom: 40px; 
 }
 
@@ -159,7 +158,8 @@ color: #313e51;}
 .subtitle {
     color:#abc1e1; 
     font-style: italic; 
-    font-size: 1.2rem; 
+    font-size: 20px; 
+    line-height: 150%;
 }
 
 @media (max-width: 1024px) {
