@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    background-color: #313e51;
+    color: white;
+    overflow-x: hidden;
+    position: relative;
+    padding: 0 140px; 
+}
+
+.main-header {
+    height: 224px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.switch {
+    width: 48px;
+    height: 28px;
+    background: #a729f5;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 4px;
+}
+
+.ball {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+}
+
+.container {
+    width: 1160px;
+    height: 464px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+}
+ 
+
+.hero {
+    width: 50%;
+}
+
+.hero h1 {
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 48px;
+}
+
+.hero strong {
+    font-weight: 500;
+    display: block;
+}
+
+.hero p {
+    color: #abc1e1;
+    font-style: italic;
+    font-size: 20px;
+}
+
+/* Cards Menu */
+.menu {
+    width: 564px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.item {
+    background: #3b4d66;
+    padding: 20px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    cursor: pointer;
+    box-shadow: 0 16px 40px rgba(49, 62, 81, 0.1);
+}
+
+.box {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+}
+
+.item span {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+/* Background Decoration */
+.circle {
+    position: absolute;
+    border: 80px solid rgba(255, 255, 255, 0.03);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.circle-top { width: 800px; height: 800px; top: -300px; left: -250px; }
+.circle-bottom { width: 900px; height: 900px; bottom: -400px; right: -300px; }
+
+/* Placeholder Colors */
+.html { background: #fff1e9; }
+.css { background: #e0fdef; }
+.js { background: #ebf0ff; }
+.access { background: #f6e7ff; }
+
+/* Hover State dial card */
+.item:hover {
+    outline: 3px solid var(--purple, #a729f5);
+    outline-offset: -3px; 
+    transition: all 0.2s ease-in-out;
+}
+
+
+.item:hover .box {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
+
+.item:active {
+    transform: scale(0.98);
+}
+
+
+.hero-text h1 {
+    font-size: 3.8rem; 
+    font-weight: 300; 
+    line-height: 1.1; 
+    margin-bottom: 40px; 
+}
+
+.bold-text {
+    font-weight: 700; 
+    color: var(--text-main); 
+}
+
+.subtitle {
+    color:#abc1e1; 
+    font-style: italic; 
+    font-size: 1.2rem; 
+}
