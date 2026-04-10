@@ -71,5 +71,157 @@
         
 
 </main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+const allQuestions = {
+    css: [
+        {
+            question: "What does CSS stand for?",
+            answers: ["Color and Style Sheets", "Coded Style Sheets", "Cascading Style Sheets", "Creative Style Sheets"],
+            correct: 2
+        },
+        {
+            question: "Which property is used to change the background color?",
+            answers: ["color", "background-color", "bgcolor", "background"],
+            correct: 1
+        },
+        { 
+            question: "How do you select an element with id 'header' in CSS?",
+            answers: ["#header", ".header", "header", "*header"],
+            correct: 0
+        },
+        {
+            question: "Which property is used to change the font size?",
+            answers: ["font-size", "text-size", "size", "font"],
+            correct: 0
+        },
+        {
+            question: "How do you make a list that lists its items with squares?",
+            answers: ["list-style-type: square;", "list-type: square;", "list: square;", "list-style: square;"],
+            correct: 0
+        },
+        {
+            question: "Which property is used to change the text color?",
+            answers: ["text-color", "color", "font-color", "text-style"],
+            correct: 1
+        },
+        {
+            question: "How do you select all p elements inside a div element?",
+            answers: ["div p", "div > p", "div + p", "div.p"],
+            correct: 0
+        },
+        {
+            question: "Which property is used to change the spacing between lines of text?",
+            answers: ["line-spacing", "line-height", "text-spacing", "spacing"],
+            correct: 1
+        },
+        {
+            question: "How do you make a border with rounded corners?",
+            answers: ["border-radius", "border-rounded", "border-corner-radius", "border-round"],
+            correct: 0
+        },
+        {
+            question: "Which property is used to change the width of an element?",
+            answers: ["width", "element-width", "size", "length"],
+            correct: 0
+        }
+    ],
+};
+
+// GET SUBJECT FROM URL
+const params = new URLSearchParams(window.location.search);
+const subject = params.get("subject") || "css";
+
+const questions = allQuestions[subject];
+
+// ELEMENTS
+const items = document.querySelectorAll(".item");
+const questionText = document.querySelector(".question");
+const submitBtn = document.querySelector(".submit-btn");
+const progressBar = document.querySelector(".progress");
+const qNumber = document.getElementById("q-number");
+const errorMessage = document.querySelector(".error-message");
+
+// STATE
+let currentQuestion = 0;
+let selectedIndex = null;
+
+// LOAD QUESTION
+function loadQuestion() {
+    const q = questions[currentQuestion];
+
+    questionText.textContent = q.question;
+
+    qNumber.textContent = currentQuestion + 1;
+
+    items.forEach((item, index) => {
+        item.querySelector("span").textContent = q.answers[index];
+    });
+}
+
+// SELECT ANSWER
+items.forEach((item, index) => {
+    item.addEventListener("click", () => {
+        selectedIndex = index;
+
+        items.forEach(i => i.classList.remove("selected"));
+        item.classList.add("selected");
+    });
+});
+
+// SUBMIT
+submitBtn.addEventListener("click", () => {
+    if (selectedIndex === null) {
+        errorMessage.classList.add("show");
+
+        setTimeout(() => {
+            errorMessage.classList.remove("show");
+        }, 2000);
+
+        return;
+    }
+
+    errorMessage.classList.remove("show");
+
+    const correctIndex = questions[currentQuestion].correct;
+
+    items.forEach((item, index) => {
+        if (index === correctIndex) {
+            item.classList.add("correct");
+        }
+
+        if (index === selectedIndex && index !== correctIndex) {
+            item.classList.add("wrong");
+        }
+    });
+
+    const percent = ((currentQuestion + 1) / questions.length) * 100;
+    progressBar.style.width = percent + "%";
+
+    setTimeout(() => {
+        currentQuestion++;
+        selectedIndex = null;
+
+        items.forEach(i =>
+            i.classList.remove("selected", "correct", "wrong")
+        );
+
+        if (currentQuestion >= questions.length) {
+            questionText.textContent = "Quiz Finished!";
+            return;
+        }
+
+        loadQuestion();
+    }, 1200);
+});
+
+// INIT
+loadQuestion();
+});
+</script>
+
+
 </body>
 </html>

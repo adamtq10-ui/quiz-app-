@@ -71,5 +71,156 @@
         
 
 </main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+const allQuestions = {
+    accessibility: [
+        {
+            question: "Which of these color contrast ratios defines the minimum WCAG 2.1 Level AA requirement for normal text??",
+            answers: ["4.5:1", "3:1", "2.5:1", "5:1"],
+            correct: 0
+        },
+        {
+            question: "Which of the following is NOT a common assistive technology used by people with disabilities?",
+            answers: ["Screen readers", "Braille displays", "Voice recognition software", "Virtual reality headsets"],
+            correct: 3
+        },
+        {
+            question: "What does ARIA stand for in web accessibility?",
+            answers: ["Accessible Rich Internet Applications", "Advanced Responsive Internet Accessibility", "Accessible Responsive Interface Attributes", "Advanced Rich Internet Applications"],
+            correct: 0
+        },
+        {
+            question: "Which of the following is an example of a semantic HTML element that can improve accessibility?",
+            answers: ["<div>", "<span>", "<header>", "<section>"],
+            correct: 2
+        },
+        {
+            question: "What is the purpose of alt text for images in web accessibility?",
+            answers: ["To provide a description of the image for screen readers", "To improve SEO", "To display a tooltip when hovering over the image", "To provide a caption for the image"],
+            correct: 0
+        },
+        {
+            question: "Which of the following is NOT a common accessibility issue for users with visual impairments?",
+            answers: ["Lack of keyboard navigation", "Inadequate color contrast", "Missing alt text for images", "Slow page load times"],
+            correct: 3
+        },
+        {
+            question: "What is the purpose of a skip link in web accessibility?",
+            answers: ["To allow users to skip to the main content of a page", "To skip loading certain resources on a page", "To skip to the next page in a multi-page form", "To skip to the top of the page"],
+            correct: 0
+        },
+        {
+            question: "Which of the following is an example of an assistive technology used by people with hearing impairments?",
+            answers: ["Screen readers", "Braille displays", "Captioning software", "Voice recognition software"],
+            correct: 2
+        },
+        {
+            question: "What is the purpose of semantic HTML in web accessibility?",
+            answers: ["To improve SEO", "To provide structure and meaning to web content for assistive technologies", "To make web pages look more visually appealing", "To reduce page load times"],
+            correct: 1
+        },
+        {
+            question: "Which of the following is NOT a common accessibility issue for users with motor impairments?",
+            answers: ["Small clickable areas", "Lack of keyboard navigation", "Inadequate color contrast", "Complex forms"],
+            correct: 2
+         }
+    ]
+};
+
+// GET SUBJECT FROM URL
+const params = new URLSearchParams(window.location.search);
+const subject = params.get("subject") || "accessibility";
+
+const questions = allQuestions[subject];
+
+// ELEMENTS
+const items = document.querySelectorAll(".item");
+const questionText = document.querySelector(".question");
+const submitBtn = document.querySelector(".submit-btn");
+const progressBar = document.querySelector(".progress");
+const qNumber = document.getElementById("q-number");
+const errorMessage = document.querySelector(".error-message");
+
+// STATE
+let currentQuestion = 0;
+let selectedIndex = null;
+
+// LOAD QUESTION
+function loadQuestion() {
+    const q = questions[currentQuestion];
+
+    questionText.textContent = q.question;
+
+    qNumber.textContent = currentQuestion + 1;
+
+    items.forEach((item, index) => {
+        item.querySelector("span").textContent = q.answers[index];
+    });
+}
+
+// SELECT ANSWER
+items.forEach((item, index) => {
+    item.addEventListener("click", () => {
+        selectedIndex = index;
+
+        items.forEach(i => i.classList.remove("selected"));
+        item.classList.add("selected");
+    });
+});
+
+// SUBMIT
+submitBtn.addEventListener("click", () => {
+    if (selectedIndex === null) {
+        errorMessage.classList.add("show");
+
+        setTimeout(() => {
+            errorMessage.classList.remove("show");
+        }, 2000);
+
+        return;
+    }
+
+    errorMessage.classList.remove("show");
+
+    const correctIndex = questions[currentQuestion].correct;
+
+    items.forEach((item, index) => {
+        if (index === correctIndex) {
+            item.classList.add("correct");
+        }
+
+        if (index === selectedIndex && index !== correctIndex) {
+            item.classList.add("wrong");
+        }
+    });
+
+    const percent = ((currentQuestion + 1) / questions.length) * 100;
+    progressBar.style.width = percent + "%";
+
+    setTimeout(() => {
+        currentQuestion++;
+        selectedIndex = null;
+
+        items.forEach(i =>
+            i.classList.remove("selected", "correct", "wrong")
+        );
+
+        if (currentQuestion >= questions.length) {
+            questionText.textContent = "Quiz Finished!";
+            return;
+        }
+
+        loadQuestion();
+    }, 1200);
+});
+
+// INIT
+loadQuestion();
+});
+</script>
+
 </body>
 </html>
