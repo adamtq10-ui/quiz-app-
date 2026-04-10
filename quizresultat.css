@@ -21,8 +21,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-left: 140px;
-            margin-right: 140px;
+            margin: 40px auto;
+            max-width: 1100px;
+            padding: 0 20px;
             margin-top: 40px;
             gap: 20px;
         }
@@ -100,7 +101,8 @@
 
         /* L-Card dyal Score */
         .right-section {
-            width: 450px;
+            width: 100%;
+            max-width: 450px;
         }
 
         .score-card {
@@ -147,3 +149,91 @@
         .btn-play:hover {
             opacity: 0.9;
         }
+
+        @media (max-width: 1024px) {
+
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+        padding-top: 40px;
+    }
+
+    .text-section h1 {
+        font-size: 40px;
+    }
+
+    .text-section h1 span {
+        font-size: 40px;
+    }
+
+    .right-section {
+        width: 100%;
+    }
+
+    .score-card {
+        padding: 30px;
+    }
+
+    .big-number {
+        font-size: 80px;
+    }
+
+    .out-of {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0;
+    }
+
+    .category {
+        font-size: 16px;
+    }
+
+    .icon-square {
+        width: 32px;
+        height: 32px;
+    }
+
+    .main-content {
+        gap: 30px;
+    }
+
+    .text-section h1 {
+        font-size: 28px;
+    }
+
+    .text-section h1 span {
+        font-size: 28px;
+    }
+
+    .score-card {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .big-number {
+        font-size: 60px;
+    }
+
+    .out-of {
+        font-size: 16px;
+    }
+
+    .btn-play {
+        padding: 16px;
+        font-size: 18px;
+        border-radius: 12px;
+    }
+}
