@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <audio autoplay loop hidden>
+        <source src="./music/quiz-music-Game-Music .mp3" type="audio/mpeg">
+    </audio>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="quiz.css">
 </head>
-<body>  
+
+<body>
     <!-- first section of the quiz app -->
 
     <div class="circle circle-top"></div>
@@ -14,28 +19,30 @@
 
     <header class="main-header">
         <div class="subject-info">
-          <div class="subject-icon" id="subject-icon"></div>
-           <span id="subject-title"></span>
+            <div class="subject-icon" id="subject-icon"></div>
+            <span id="subject-title"></span>
         </div>
         <div class="theme-toggle">
             <span>☀️</span>
-            <div class="switch"><div class="ball"></div></div>
+            <div class="switch">
+                <div class="ball"></div>
+            </div>
             <span>🌙</span>
         </div>
     </header>
 
     <main class="container">
         <div class="hero-text">
-    <h1>Welcome to the <br><span class="bold-text">Frontend Quiz!</span></h1>
-    <p class="subtitle">Pick a subject to get started.</p>
-</div>
+            <h1>Welcome to the <br><span class="bold-text">Frontend Quiz!</span></h1>
+            <p class="subtitle">Pick a subject to get started.</p>
+        </div>
 
         <div class="menu">
 
             <a href="./quiz-html-questions.html" class="item">
-              <div class="box html">
-               <img src="./assets/asset1.png" alt="HTML Icon">
-              </div>
+                <div class="box html">
+                    <img src="./assets/asset1.png" alt="HTML Icon">
+                </div>
                 <span>HTML</span>
             </a>
 
@@ -63,4 +70,5 @@
         </div>
     </main>
 </body>
+
 </html>

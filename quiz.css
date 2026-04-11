@@ -64,11 +64,14 @@ body {
 
 .hero h1 {
     font-size: 64px;
-    font-weight: 300;
+    font-weight: 50;
     line-height: 100%;
     margin-bottom: 48px;
 }
-
+.hero span {
+    font-weight: 900;
+    
+}
 .hero strong {
     font-weight: 500;
     display: block;
