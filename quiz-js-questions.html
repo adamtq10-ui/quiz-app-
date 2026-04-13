@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <!-- RIGHT SIDE -->
+   
     <div class="menu">
 
         <div class="item">
@@ -130,13 +130,13 @@ const allQuestions = {
     ],
 };
 
-// GET SUBJECT FROM URL
+
 const params = new URLSearchParams(window.location.search);
 const subject = params.get("subject") || "javascript";
 
 const questions = allQuestions[subject];
 
-// ELEMENTS
+
 const items = document.querySelectorAll(".item");
 const questionText = document.querySelector(".question");
 const submitBtn = document.querySelector(".submit-btn");
@@ -144,7 +144,7 @@ const progressBar = document.querySelector(".progress");
 const qNumber = document.getElementById("q-number");
 const errorMessage = document.querySelector(".error-message");
 
-// STATE
+
 let currentQuestion = 0;
 let selectedIndex = null;
 let score = 0;
@@ -162,7 +162,7 @@ function loadQuestion() {
     });
 }
 
-// SELECT ANSWER
+
 items.forEach((item, index) => {
     item.addEventListener("click", () => {
         selectedIndex = index;
@@ -172,7 +172,7 @@ items.forEach((item, index) => {
     });
 });
 
-// SUBMIT
+
 submitBtn.addEventListener("click", () => {
     if (selectedIndex === null) {
         errorMessage.classList.add("show");
@@ -188,13 +188,12 @@ submitBtn.addEventListener("click", () => {
 
     const correctIndex = questions[currentQuestion].correct;
 
-    // ❌ WRONG ANSWER → END QUIZ IMMEDIATELY
     if (selectedIndex !== correctIndex) {
         window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=javascript`;
         return;
     }
 
-    // ✅ CORRECT ANSWER
+
     score++;
 
     items.forEach((item, index) => {
@@ -223,7 +222,7 @@ submitBtn.addEventListener("click", () => {
     }, 1200);
 });
 
-// INIT
+
 loadQuestion();
 });
 </script>
