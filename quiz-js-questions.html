@@ -189,9 +189,25 @@ submitBtn.addEventListener("click", () => {
     const correctIndex = questions[currentQuestion].correct;
 
     if (selectedIndex !== correctIndex) {
+
+    // show correct answer (green)
+    items.forEach((item, index) => {
+        if (index === correctIndex) {
+            item.classList.add("correct");
+        }
+
+        if (index === selectedIndex) {
+            item.classList.add("wrong");
+        }
+    });
+
+    // delay redirect so user sees feedback
+    setTimeout(() => {
         window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=javascript`;
-        return;
-    }
+    }, 1200);
+
+    return;
+}
 
 
     score++;

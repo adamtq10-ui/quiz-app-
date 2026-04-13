@@ -188,9 +188,25 @@ submitBtn.addEventListener("click", () => {
 
     // WRONG ANSWER → END QUIZ IMMEDIATELY
     if (selectedIndex !== correctIndex) {
+
+    // show correct answer in green
+    items.forEach((item, index) => {
+        if (index === correctIndex) {
+            item.classList.add("correct");
+        }
+
+        if (index === selectedIndex) {
+            item.classList.add("wrong");
+        }
+    });
+
+    // wait so user can SEE result
+    setTimeout(() => {
         window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=css`;
-        return;
-    }
+    }, 1200);
+
+    return;
+}
 
     // RIGHT ANSWER → increase score
     score++;
