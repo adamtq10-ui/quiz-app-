@@ -34,7 +34,6 @@
         </div>
     </div>
 
-    <!-- RIGHT SIDE -->
     <div class="menu">
 
         <div class="item">
@@ -130,13 +129,12 @@ const allQuestions = {
     ]
 };
 
-// GET SUBJECT FROM URL
 const params = new URLSearchParams(window.location.search);
 const subject = params.get("subject") || "accessibility";
 
 const questions = allQuestions[subject];
 
-// ELEMENTS
+
 const items = document.querySelectorAll(".item");
 const questionText = document.querySelector(".question");
 const submitBtn = document.querySelector(".submit-btn");
@@ -144,7 +142,6 @@ const progressBar = document.querySelector(".progress");
 const qNumber = document.getElementById("q-number");
 const errorMessage = document.querySelector(".error-message");
 
-// STATE
 let currentQuestion = 0;
 let selectedIndex = null;
 let score = 0;
@@ -233,7 +230,7 @@ submitBtn.addEventListener("click", () => {
 }, 1200);
 });
 
-// INIT
+
 loadQuestion();
 });
 </script>
