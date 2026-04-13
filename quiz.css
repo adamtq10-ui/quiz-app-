@@ -92,7 +92,7 @@ body {
     margin-bottom : 24px
 }
 
-/* Cards Menu */
+
 .menu {
     width: 564px;
     display: flex;
@@ -394,7 +394,7 @@ color: #313e51;}
     font-weight: bold;
 }
 
-/* CORRECT */
+
 .item.correct .icon {
     border-color: #2FD887;
     color: #2FD887;
@@ -404,7 +404,7 @@ color: #313e51;}
     content: "✔";
 }
 
-/* WRONG */
+
 .item.wrong .icon {
     border-color: #EE5454;
     color: #EE5454;
@@ -418,12 +418,12 @@ color: #313e51;}
     content: "✖";
 }
 
-/* check */
+
 .item.correct .icon {
     background: #2FD887;
 }
 
-/* wrong */
+
 .item.wrong .icon {
     background: #EE5454;
 }
@@ -496,7 +496,7 @@ color: #313e51;}
 
 .main-header {
     display: flex;
-    justify-content: space-between; /* Katdfa3 wahda l-yissar w wahda l-yemine */
+    justify-content: space-between; 
     align-items: center;
     padding: 40px 140px;
     margin-left: -90px;
@@ -507,13 +507,13 @@ color: #313e51;}
 .header-left {
     display: flex;
     align-items: center;
-    gap: 16px; /* Hadu houwa l-gap li bghiti bin l-icon w kelmat Accessibility */
+    gap: 16px; 
 }
 
 .icon-square {
     width: 48px;
     height: 48px;
-    background-color: #f4f6fa; /* Lawn l-khlifya dyal l-icon */
+    background-color: #f4f6fa; 
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -521,7 +521,7 @@ color: #313e51;}
 }
 
 .icon-square img {
-    width: 32px; /* K9addi l-hajm dyal l-img dakhil l-morabba3 */
+    width: 32px; 
 }
 
 .category-name {
@@ -552,5 +552,5 @@ color: #313e51;}
     border-radius: 50%;
     position: absolute;
     top: 3px;
-    right: 4px; /* f l-image l-ball kayna f l-yemine */
+    right: 4px; 
 }

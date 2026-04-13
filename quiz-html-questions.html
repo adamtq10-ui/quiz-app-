@@ -194,13 +194,13 @@ submitBtn.addEventListener("click", () => {
 
     const correctIndex = questions[currentQuestion].correct;
 
-    // ❌ WRONG ANSWER → END QUIZ IMMEDIATELY
+    //  WRONG ANSWER → END QUIZ IMMEDIATELY
     if (selectedIndex !== correctIndex) {
         window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=html`;
         return;
     }
 
-    // ✅ CORRECT ANSWER
+    //  CORRECT ANSWER
     score++;
 
     items.forEach((item, index) => {

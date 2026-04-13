@@ -16,7 +16,7 @@
             min-height: 100vh;
         }
 
-        /* L-fo9ani (Header) */
+        
         .header {
             display: flex;
             justify-content: space-between;
@@ -72,7 +72,7 @@
             top: 4px;
         }
 
-        /* L-west (Main Content) */
+        
         .main-content {
             display: flex;
             justify-content: space-between;
@@ -99,7 +99,7 @@
             line-height: 100%;
         }
 
-        /* L-Card dyal Score */
+        
         .right-section {
             width: 100%;
             max-width: 450px;
@@ -132,7 +132,7 @@
             margin-top: 15px;
         }
 
-        /* Button Mouve */
+        
         .btn-play {
             background-color: var(--purple-btn);
             color: white;
