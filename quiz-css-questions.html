@@ -23,7 +23,6 @@
 </header>
 <main class="container">
 
-    <!-- LEFT SIDE -->
     <div class="hero-text">
         <p>Question <span id="q-number">1</span> of 10</p>
 
@@ -34,7 +33,6 @@
         </div>
     </div>
 
-    <!-- RIGHT SIDE -->
     <div class="menu">
 
         <div class="item">
@@ -144,7 +142,7 @@ const progressBar = document.querySelector(".progress");
 const qNumber = document.getElementById("q-number");
 const errorMessage = document.querySelector(".error-message");
 
-// STATE
+
 let currentQuestion = 0;
 let selectedIndex = null;
 let score = 0;
@@ -162,7 +160,7 @@ function loadQuestion() {
     });
 }
 
-// SELECT ANSWER
+
 items.forEach((item, index) => {
     item.addEventListener("click", () => {
         selectedIndex = index;
@@ -188,13 +186,13 @@ submitBtn.addEventListener("click", () => {
 
     const correctIndex = questions[currentQuestion].correct;
 
-    // ❌ WRONG ANSWER → END QUIZ IMMEDIATELY
+    // WRONG ANSWER → END QUIZ IMMEDIATELY
     if (selectedIndex !== correctIndex) {
         window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=css`;
         return;
     }
 
-    // ✅ RIGHT ANSWER → increase score
+    // RIGHT ANSWER → increase score
     score++;
 
     items.forEach((item, index) => {
@@ -223,7 +221,7 @@ submitBtn.addEventListener("click", () => {
     }, 1200);
 });
 
-// INIT
+
 loadQuestion();
 });
 </script>
