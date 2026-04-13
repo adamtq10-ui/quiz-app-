@@ -187,17 +187,19 @@ submitBtn.addEventListener("click", () => {
     errorMessage.classList.remove("show");
 
     const correctIndex = questions[currentQuestion].correct;
-    if (selectedIndex === correctIndex) {
-    score++;
+
+    // ❌ WRONG ANSWER → END QUIZ IMMEDIATELY
+    if (selectedIndex !== correctIndex) {
+        window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=javascript`;
+        return;
     }
+
+    // ✅ CORRECT ANSWER
+    score++;
 
     items.forEach((item, index) => {
         if (index === correctIndex) {
             item.classList.add("correct");
-        }
-
-        if (index === selectedIndex && index !== correctIndex) {
-            item.classList.add("wrong");
         }
     });
 
@@ -213,8 +215,8 @@ submitBtn.addEventListener("click", () => {
         );
 
         if (currentQuestion >= questions.length) {
-         window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=javascript`;
-         return;
+            window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=javascript`;
+            return;
         }
 
         loadQuestion();

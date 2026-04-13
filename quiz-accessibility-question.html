@@ -205,20 +205,32 @@ submitBtn.addEventListener("click", () => {
     progressBar.style.width = percent + "%";
 
     setTimeout(() => {
-        currentQuestion++;
-        selectedIndex = null;
 
-        items.forEach(i =>
-            i.classList.remove("selected", "correct", "wrong")
-        );
+    const correctIndex = questions[currentQuestion].correct;
 
-        if (currentQuestion >= questions.length) {
-         window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=accessibility`;
-         return;
-        }
+    // IF WRONG → GO TO SCORE IMMEDIATELY
+    if (selectedIndex !== correctIndex) {
+        window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=accessibility`;
+        return;
+    }
 
-        loadQuestion();
-    }, 1200);
+    // IF CORRECT → CONTINUE
+    currentQuestion++;
+    selectedIndex = null;
+
+    items.forEach(i =>
+        i.classList.remove("selected", "correct", "wrong")
+    );
+
+    // IF LAST QUESTION → SCORE
+    if (currentQuestion >= questions.length) {
+        window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=accessibility`;
+        return;
+    }
+
+    loadQuestion();
+
+}, 1200);
 });
 
 // INIT
