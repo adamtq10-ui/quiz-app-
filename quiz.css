@@ -10,7 +10,7 @@ body {
     color: white;
     width: 100%;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
     position: relative;
     padding: 0 clamp(20px, 8vw, 140px);
     min-height: 100vh;
@@ -553,4 +553,14 @@ color: #313e51;}
     position: absolute;
     top: 3px;
     right: 4px; 
+}
+
+.item.correct .option {
+    background: #26d782; 
+    color: white;
+}
+
+.item.wrong .option {
+    background: #ee5454; 
+    color: white;
 }
