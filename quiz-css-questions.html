@@ -128,7 +128,7 @@ const allQuestions = {
     ],
 };
 
-// GET SUBJECT FROM URL
+// SUBJECT URL
 const params = new URLSearchParams(window.location.search);
 const subject = params.get("subject") || "css";
 
@@ -186,10 +186,10 @@ submitBtn.addEventListener("click", () => {
 
     const correctIndex = questions[currentQuestion].correct;
 
-    // WRONG ANSWER → END QUIZ IMMEDIATELY
+    // WRONG → END QUIZ 
     if (selectedIndex !== correctIndex) {
 
-    // show correct answer in green
+    // show correct answer 
     items.forEach((item, index) => {
         if (index === correctIndex) {
             item.classList.add("correct");
@@ -200,7 +200,7 @@ submitBtn.addEventListener("click", () => {
         }
     });
 
-    // wait so user can SEE result
+    // wait for user to see result
     setTimeout(() => {
         window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=css`;
     }, 1200);
@@ -208,7 +208,7 @@ submitBtn.addEventListener("click", () => {
     return;
 }
 
-    // RIGHT ANSWER → increase score
+    // RIGHT → increase score
     score++;
 
     items.forEach((item, index) => {

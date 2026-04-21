@@ -28,7 +28,7 @@
 </header>
 <main class="container">
 
-    <!-- LEFT SIDE -->
+    
     <div class="hero-text">
         <p>Question <span id="q-number">1</span> of 10</p>
 
@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <!-- RIGHT SIDE -->
+    
     <div class="menu">
 
         <div class="item">
@@ -136,13 +136,13 @@ const allQuestions = {
     ],
 };
 
-// GET SUBJECT FROM URL
+//SUBJECT FROM URL
 const params = new URLSearchParams(window.location.search);
 const subject = params.get("subject") || "html";
 
 const questions = allQuestions[subject];
 
-// ELEMENTS
+
 const items = document.querySelectorAll(".item");
 const questionText = document.querySelector(".question");
 const submitBtn = document.querySelector(".submit-btn");
@@ -150,12 +150,12 @@ const progressBar = document.querySelector(".progress");
 const qNumber = document.getElementById("q-number");
 const errorMessage = document.querySelector(".error-message");
 
-// STATE
+
 let currentQuestion = 0;
 let selectedIndex = null;
 let score = 0;
 
-// LOAD QUESTION
+
 function loadQuestion() {
     const q = questions[currentQuestion];
 
@@ -196,7 +196,7 @@ submitBtn.addEventListener("click", () => {
 
     if (selectedIndex !== correctIndex) {
 
-    // show correct answer (green)
+    // show correct answer
     items.forEach((item, index) => {
         if (index === correctIndex) {
             item.classList.add("correct");
@@ -207,7 +207,7 @@ submitBtn.addEventListener("click", () => {
         }
     });
 
-    // wait so user can SEE feedback
+    // wait for user to see feedback feedback
     setTimeout(() => {
         window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=html`;
     }, 1200);

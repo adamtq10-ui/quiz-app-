@@ -205,13 +205,13 @@ submitBtn.addEventListener("click", () => {
 
     const correctIndex = questions[currentQuestion].correct;
 
-    // IF WRONG → GO TO SCORE IMMEDIATELY
+    // IF WRONG → GO TO SCORE 
     if (selectedIndex !== correctIndex) {
         window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=accessibility`;
         return;
     }
 
-    // IF CORRECT → CONTINUE
+    // CORRECT → CONTINUE
     currentQuestion++;
     selectedIndex = null;
 
@@ -219,7 +219,7 @@ submitBtn.addEventListener("click", () => {
         i.classList.remove("selected", "correct", "wrong")
     );
 
-    // IF LAST QUESTION → SCORE
+    // LAST QUESTION → SCORE
     if (currentQuestion >= questions.length) {
         window.location.href = `quiz-resultat-page.html?score=${score}&total=${questions.length}&subject=accessibility`;
         return;
